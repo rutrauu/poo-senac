@@ -1,0 +1,35 @@
+create database teste01;
+
+use teste01;
+
+
+create table teste01.tabNova
+(
+	id int primary key,
+    nome	varchar(30) not null,
+    datanasc date not null
+);
+
+use teste01;
+
+drop table teste01.A09_PESSOA;
+
+create table teste01.A09_PESSOA (
+	idPessoa		int			primary key auto_increment,
+	nomePessoa		varchar(60) NOT NULL,
+	dataNascimento 	date 		NOT NULL,
+    CPF				char(11) 	NOT NULL,
+    situacao		char(1) 	DEFAULT 'A' NOT NULL
+);
+SELECT * from teste01.A09_PESSOA;
+
+insert INTO teste01.A09_PESSOA (nomePessoa, dataNascimento, CPF) 
+values ('artur', '2003-09-26', '213546456');
+
+ALTER TABLE teste01.A09_PESSOA
+	ADD CONSTRAINT pk_Pessoa_id 
+		PRIMARY KEY (idPessoa);
+
+alter table teste01.a09_pessoa comment 'testando algo';
+
+select sysdate();
